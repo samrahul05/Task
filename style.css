@@ -23,7 +23,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    z-index:1;
+    z-index:50 !important;
+    background-color: rgba(32, 54, 75, 0.87);
 }
 .navbar .nav-div1{
     font-size: 35px;
