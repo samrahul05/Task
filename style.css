@@ -11,6 +11,8 @@ body{
     background-color: rgb(32,54,75);
 }
 
+
+
 /* navbar styling */
 
 .navbar{
@@ -24,27 +26,32 @@ body{
     justify-content: space-around;
     z-index: 999;
 }
-.navbar .logo{
+.navbar .nav-div1{
     font-size: 35px;
     font-weight: 600;
+    
     display: flex;
     align-items: center;
     z-index: 999;
 }
+.logo{
+    margin-top: 10px;
+  
+}
 .navbar a{
     color: #fff;
-    font-size: 35px;
+    font-size: 25px;
     font-weight: 600;
     display: flex;
     flex-direction: column;
     
 }
-.navbar .logo a span{
+.navbar .nav-div1 a span{
      color: #fdc022;
     transition: all 0.3s ease;
 
 }
-.navbar.sticky .logo a span{
+.navbar.sticky .nav-div1 a span{
     color: #fff;
 }
 
@@ -72,42 +79,38 @@ body{
     font-weight: 500;   
     padding:10px;
 }
-
-
-/* .menu li a:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: orange;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
-.menu li:hover li a:after {
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap:20px;
+    list-style: none;
+    
+}
+.menu li a{
+    display: block;
+    position: relative;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-weight: 500;   
+    padding:10px;
+}
+.menu li ::after{
+    content:'';
+    height:2px;
+    width:0;
+    background:#fdc022;
+    position:absolute;
+    left :0;
+    bottom:0px;
+    transform: scaleX(0) ;
+    transition: transform 0.3s linear;
+}
+.menu li :hover::after{
     transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-
-.li a:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #000000;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
-  
-  .menu:hover .li a:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  } */
+    width:100%;
+}
 
 .search-out{
     background-color:#6c6642;
@@ -127,6 +130,10 @@ body{
     padding: 10px; 
 
   }
+
+
+
+
 
 /* home section  */
 .home{
@@ -162,7 +169,7 @@ content{
     width: 500px;
     font-size: 20px;
 }
-.form{
+form{
     
     height:200px;
     display:flex;
@@ -183,7 +190,7 @@ content{
     
 
 }
-.form button{
+form button{
     padding: 10px;
     width:100px;
     border-radius: 50px;
@@ -198,21 +205,21 @@ content{
     width:40%;
     height:auto;
 }
-.rocketicon{
+.rocket-icon{
     
     width:auto;
     position:absolute;
     left:-30px;
     
 }
-.targeticon{
+.target-icon{
     width:auto;
     position:absolute;
     right:10px;
     bottom:-150px;
     
 }
-.messageicon{
+.message-icon{
     width:auto;
     position:absolute;
     left:-250px;
@@ -223,13 +230,39 @@ content{
     width: 500px;
     height: 500px;
     padding:20px;
-    /* margin-left: 200px; */
-    background-image: url('/images/profile-4.jpeg');
+    background-image: url('./images/profile-4.jpeg');
     background-position: center;
     background-size: cover;
     border-radius: 47% 50% 20% 60% /  52% 75% 25% 48%   ;
     
     
+}
+.bg-box{
+    width:500px;
+    height:500px;
+    position: absolute;
+    top:20px;
+    right: 220px;
+    z-index: -2;
+    float:left;
+    border-radius: 75% 25% 39% 61% / 60% 48% 52% 40% ;
+    background-color: #fdc022;
+}
+.white-circle{
+    width:650px;
+    height:300px;
+    border-radius: 50%;
+    position: absolute;
+    top:120px;
+    right:160px;
+    z-index: -1;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 120% 350% ;
+}
+.menu-icon{
+    display: none;
+    margin-left: 100px;
 }
 .menu-icon{
     display: none;
@@ -237,6 +270,9 @@ content{
 }
 
 
+
+
+/* Media Queries  */
   
 @media  screen and   (max-width:375px){
    
@@ -268,7 +304,6 @@ content{
         margin-top: 20px;
         width: 100%;
         padding:10px;
-        /* position: absolute; */
         margin-left: -20px;
         gap:30px;
         display:flex;
@@ -288,7 +323,7 @@ content{
         width:40%;
         height:auto;
     }
-    .form{
+    form{
         
         height:150px;
         display:flex;
@@ -297,8 +332,7 @@ content{
         
     }
      input{
-        
-        
+    
         border-radius: 40px;
         font-size: samll;
         border:none;
@@ -309,7 +343,7 @@ content{
         
     
     }
-    .form button{
+    form button{
         padding: 10px;
         width:100px;
         border-radius: 50px;
@@ -318,27 +352,64 @@ content{
         background-color:#fdc022;
         
     }
-    .rocketicon{
-       display: none;
+    .rocket-icon{
+    
+        width:auto;
+        position:absolute;
+        top:-50px;
+        left:0px;        
     }
-    .targeticon{
-        display:none;        
+    
+    .target-icon{
+        z-index:9;
+        position: absolute;
+        top:320px;
+        right:80px;
+        
+        
+        
     }
-    .messageicon{
-        display: none;
+    .home-right{
+          
+        
+        margin-top: 80px;
+        position: relative;
+        left:30px;
         
     }
     .home-right-img{
-        
-        width: 200px;
-        height: 200px;
-        background-image: url('/images/profile-4.jpeg');
+        width:300px;
+        height:300px;
+        background-image: url('./images/profile-4.jpeg');
+        position: absolute;
+        left:20px;
+        top:20px;
         background-position: center;
         background-size: cover;
         border-radius: 47% 50% 20% 60% /  52% 75% 25% 48%   ;
     }
-    
-    
+   
+    .bg-box{
+        width:300px;
+        height:300px;
+        position: absolute;
+        left:10px;
+        z-index: -2;
+        float:left;
+        border-radius: 75% 25% 39% 61% / 60% 48% 52% 40% ;
+        background-color: #fdc022;
+    }
+    .white-circle{
+        width:300px;
+        height:350px;
+        border-radius: 50%;
+        position: absolute;
+        top:5px;
+        left:20px;      
+        background: transparent;
+        border: 2px solid white;
+        border-radius: 120% 350% ;
+    }   
 }
 
 @media screen and (max-width: 768px) {
@@ -349,8 +420,6 @@ content{
     .menu-icon {
         display: block;
     }
-    
-    
     .home-left{
         font-size: 50px ;
     }
@@ -359,9 +428,7 @@ content{
     }
     
   }
-
-
-  @media screen and (max-width:1230px){
+@media screen and (max-width:1230px){
     .home{
         display: inline;
         margin :auto;
@@ -369,8 +436,4 @@ content{
     .search-out{
         display: none;
     }
-    .rocketicon.targeticon.messageicon{
-        display: none;
-    }
-
   }
